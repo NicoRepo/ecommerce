@@ -1,0 +1,8 @@
+.card {
+  border: 1px solid black;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color:black; /* Cambia el color del borde al hacer hover */
+}

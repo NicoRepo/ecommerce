@@ -1,4 +1,15 @@
 body {
-    overflow-x: hidden;
-    overflow-y: hidden;
+  overflow-x: hidden;
+  background-image: url(https://raw.githubusercontent.com/NicoRepo/ecommerce/main/src/assets/img/bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    background-image: url(https://raw.githubusercontent.com/NicoRepo/ecommerce/main/src/assets/img/bg.jpg);
+  }
 }

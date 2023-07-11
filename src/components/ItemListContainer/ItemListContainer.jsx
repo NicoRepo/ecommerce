@@ -1,6 +1,6 @@
 import React from "react";
 
-const ItemListContainer = (
+export const ItemListContainer = (
   { greeting = "Bienvenido Default" } = { greeting: "Bienvenido Default" }
 ) => {
   return (
@@ -11,4 +11,3 @@ const ItemListContainer = (
   );
 };
 
-export default ItemListContainer;
