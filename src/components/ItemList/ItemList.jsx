@@ -1,15 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import TextOverflow from "react-text-overflow";
 import "./index.css";
 
-export const ProductCard = ({ name, img, id, description }) => {
+export const ItemList = ({ name, img, id, description }) => {
   const navigate = useNavigate();
 
-  const navigateToProductPage = () => {
-    navigate(`/vinilos/${id}`);
+  const navigateItemPage = () => {
+    navigate(`/item/${id}`);
   };
 
   useState(() => {}, []);
@@ -26,7 +26,7 @@ export const ProductCard = ({ name, img, id, description }) => {
             <TextOverflow text={description} />
           </Card.Text>
           <div className="d-flex flex-row-reverse mt-auto">
-            <Button variant="outline-dark" onClick={navigateToProductPage}>
+            <Button variant="outline-dark" onClick={navigateItemPage}>
               Ver
             </Button>
           </div>

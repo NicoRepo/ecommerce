@@ -20,9 +20,11 @@ export const routes = [
         element: <ProductsDisplay />,
       },
       {
+        id: "XD",
         path: "vinilos/:id",
-        loader: async ({ params: { id } }) => {
-          return data.find((p) => p.id === id);
+        loader: async ({params: {id}, ...props}) => {
+          console.log(props.request)
+          return data.find((p) => p.id === "fa4bca6d-4589-4409-898e-67559b5efd76");
         },
         element: <ProductPage />,
       },

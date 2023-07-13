@@ -6,13 +6,10 @@ import { Body } from "../Body/Body";
 export const Layout = () => {
   return (
     <Provider>
-      <div>
-        <NavBar />
-        <Body>
-          <Outlet />
-        </Body>
-      </div>
+      <NavBar />
+      <Body>
+        <Outlet />
+      </Body>
     </Provider>
   );
 };
-

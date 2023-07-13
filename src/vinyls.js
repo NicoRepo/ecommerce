@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const data = [
   {
     id: "fa4bca6d-4589-4409-898e-67559b5efd76",
+    category: "vinilo",
     name: "Live at Starland Ballroom",
     img: "https://silversteinmusic.com/cdn/shop/files/Starland_493x_3bfa9c96-95d7-42c5-a33d-8cef7abb8207.webp?v=1684423686",
     artist: "Silverstein",
@@ -24,6 +25,7 @@ export const data = [
   },
   {
     id: "2d0f26cc-1483-4a4d-b2bd-7b1c6b7cb30a",
+    category: "vinilo",
     name: "When Broken 15 Easily Fixed (Live)",
     img: "https://i.discogs.com/hE1YtOdsWZuyUXN17nj24MANzJe_Zjy-a5k4RMzE8Zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NTQ4/NTY1LTE1NzY4Mzk2/OTMtMjU1NS5qcGVn.jpeg",
     artist: "Silverstein",
@@ -44,6 +46,30 @@ export const data = [
   },
   {
     id: "b79cf20f-0988-4915-90d7-2de3c3a2de82",
+    category: "vinilo",
+    name: "REDUX: The First 10 Years",
+    img: "https://silversteinmusic.com/cdn/shop/files/silverstein_6287_750x.webp?v=1684428953",
+    artist: "Silverstein",
+    tracklist: [
+      "Smashed Into Pieces",
+      "Smile In Your Sleep",
+      "American Dream",
+      "Bleeds No More",
+      "My Heroine",
+      "Vices",
+      "Your Sword vs My Dagger",
+      "If You Could See Into My Soul",
+      "Giving Up",
+      "Still Dreaming (Acoustic)",
+      "Red Light Pledge",
+      "Call It Karma",
+    ],
+    description:
+      "\n    All New Recordings of 12 Classic Songs from our first 10 Years\n    \n    “Waterfront Variant” Vinyl Re-Press\n    Limited to 1000 copies worldwide\n    Cyan Blue Opaque\n    \n    In stock & ready to ship!\n    \n    ",
+  },
+  {
+    id: "b79cf20f-0988-4915-90d7-2de3c3a2de83",
+    category: "vinilos",
     name: "REDUX: The First 10 Years",
     img: "https://silversteinmusic.com/cdn/shop/files/silverstein_6287_750x.webp?v=1684428953",
     artist: "Silverstein",
