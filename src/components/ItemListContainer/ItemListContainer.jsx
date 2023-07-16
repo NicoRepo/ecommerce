@@ -9,18 +9,21 @@ export const ItemListContainer = () => {
   const { categoryId } = useParams();
 
   //? If categoryId value is undefined filterCallback returns all products
-  const filterCallback = ({ product }) =>
-    categoryId ? product.category === categoryId : true;
+  const filterCallback = ({ product }) => {
+    if( categoryId === "all") return true;
+    else return categoryId ? product.category === categoryId : true;
+  }
 
   useEffect(() => {
     productFilter({ filterCallback }).then((filteredProducts) => {
+      console.log(filteredProducts)
       setProducts(filteredProducts);
       
     });
   }, [categoryId]);
 
   return products ? (
-    <div className="d-flex align-content-start flex-wrap gap-3">
+    <div className="d-flex flex-wrap gap-3">
       {products.map((v, i) => (
         <ItemList key={v.id} {...v} />
       ))}

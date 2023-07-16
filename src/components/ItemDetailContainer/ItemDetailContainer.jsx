@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context";
 import { useParams } from "react-router-dom";
-import { Card, Button, Container, Tab, Tabs, ListGroup } from "react-bootstrap";
+import { Card, Button, Tab, Tabs, ListGroup } from "react-bootstrap";
 import { productFind } from "../../App";
+import { formatPrice } from "../../helpers";
 
 export const ItemDetailContainer = () => {
   const { dispatch } = useContext(Context);
@@ -24,7 +25,7 @@ export const ItemDetailContainer = () => {
             <div className="flex-shrink-0">
               <Card.Img
                 variant="top"
-                className="rounded"
+                className="rounded border border-dark"
                 src={product.img}
                 style={{ width: "300px" }}
               />
@@ -42,11 +43,12 @@ export const ItemDetailContainer = () => {
                   >
                     <div className="mb-auto">
                       <Card.Title className="fs-3">{product.name}</Card.Title>
-                      <Card.Text className="fs-4 fst-italic text-secondary">
+                      <Card.Subtitle className="fs-4 fst-italic text-secondary">
                         {product.artist}
-                      </Card.Text>
+                      </Card.Subtitle>
                     </div>
-                    <div className="d-flex flex-row-reverse">
+                    <div className="d-flex flex-row justify-content-between">
+                    <Button disabled variant="outline-dark">{formatPrice(product.price)}</Button>
                       <Button
                         variant="outline-dark"
                         onClick={() => {
