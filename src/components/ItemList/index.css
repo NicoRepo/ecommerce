@@ -4,5 +4,5 @@
 }
 
 .card:hover {
-  border-color:black; /* Cambia el color del borde al hacer hover */
+  border-color:black; /* Set Border Dark on Mouse Hover */
 }

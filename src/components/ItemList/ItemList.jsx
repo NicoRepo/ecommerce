@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+import { Button, InputGroup } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import TextOverflow from "react-text-overflow";
@@ -16,7 +16,7 @@ export const ItemList = ({ name, img, id, description, price, artist }) => {
   useState(() => {}, []);
 
   return (
-    <Card className="highligth-effect" style={{ width: "18rem" }}>
+    <Card className="highligth-effect mx-auto" style={{ width: "18rem" }}>
       <Card.Img variant="top" src={img} />
       <Card.Body>
         <div className="d-flex flex-column" style={{ height: "8rem" }}>
@@ -30,9 +30,12 @@ export const ItemList = ({ name, img, id, description, price, artist }) => {
             <TextOverflow text={description} />
           </Card.Text>
           <div className="d-flex flex-row justify-content-between mt-auto">
-            <Button disabled variant="outline-dark">${formatPrice(price)}</Button>
+            <InputGroup style={{maxWidth: "50%"}}>
+              <InputGroup.Text>$</InputGroup.Text>
+              <InputGroup.Text> {formatPrice(price)}</InputGroup.Text>
+            </InputGroup>
             <Button variant="outline-dark" onClick={navigateItemPage}>
-              Ver
+              <i className="bi bi-eye me-1"></i> Ver
             </Button>
           </div>
         </div>

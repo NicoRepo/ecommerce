@@ -8,20 +8,23 @@ const categories = [
   { name: "Metal", category: "metal" },
   { name: "Nu-Metal", category: "numetal" },
   { name: "Post-Hardcore", category: "posthardcore" },
+  { name: "Pop Punk", category: "pop-punk" },
 ];
 
 export const NavBar = () => {
   return (
     <Navbar expand="lg" bg="light" sticky="top" variant="light">
       <Container className="px-4 px-lg-4">
-        <Navbar.Brand className="fst-italic fs-4">Vinyl Store</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/" className="fst-italic fs-4">
+          <i className="bi bi-vinyl me-1"></i>
+          Vinyl Store</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto mb-2 mb-lg-0 ms-lg-4">
             <Nav.Link as={NavLink} to="/">
-              Home
+              Inicio
             </Nav.Link>
             {/* <Nav.Link as={NavLink} to="/category/vinilo">Vinilos</Nav.Link> */}
-            <NavDropdown title="Productos">
+            <NavDropdown title="Categorias">
               {categories.map((c) => (
                 <NavDropdown.Item
                   key={`nav-filter-${c.category}`}
@@ -32,13 +35,14 @@ export const NavBar = () => {
                 </NavDropdown.Item>
               ))}
             </NavDropdown>
-            <Nav.Link as={NavLink} to="/nosotros">
+            <Nav.Link disabled as={NavLink} to="/nosotros">
               Nosotros
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <CartWidget />
+      
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <CartWidget />
       </Container>
     </Navbar>
   );
