@@ -9,20 +9,20 @@ const Context = createContext({});
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const item = state.cart[action.payload.id];
-      console.log(item)
+      const item = state.cart[action.payload.product.id];
+      const qty = action.payload.qty;
       return {
         ...state,
         cart: {
           ...state.cart,
-          [action.payload.id]: item
+          [action.payload.product.id]: item
             ? {
                 ...item,
-                qty: item.qty + 1,
+                qty: item.qty + qty,
               }
             : {
                 ...action.payload,
-                qty: 1,
+                qty: qty,
               },
         },
       };

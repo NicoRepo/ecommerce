@@ -1,4 +1,4 @@
-import { data } from "./vinyls";
+import { data } from "./API/API";
 
 export const formatPrice = (price) => {
   let stringNumber = price.toString();
@@ -12,12 +12,12 @@ export const formatPrice = (price) => {
 };
 
 
-//? Simulate .5s API Delay
+//? Simulate 1s API Delay
 export const productFilter = async ({ filterCallback }) => {
   return await new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data.filter((p) => filterCallback({ product: p })));
-    }, 500);
+    }, 1000);
   });
 };
 
