@@ -26,7 +26,7 @@ export const ItemListContainer = () => {
   return products ? (
     <div className="d-flex flex-wrap gap-3">
       {products.length ? (
-        products.map((v, i) => <ItemList key={v.id} {...v} />)
+        products.map((v, i) => <ItemList key={v.id} product={v} />)
       ) : (
         <div className="text-center">
           <p className="lead text-white fs-1 fw-bold mb-5">No se encontraron productos :(</p>

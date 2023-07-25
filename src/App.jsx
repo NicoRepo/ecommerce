@@ -16,7 +16,7 @@ function App() {
           ></Route>
           <Route path="item/:id" element={<ItemDetailContainer />}></Route>
           <Route path="nosotros" element={<>SOON</>}></Route>
-          <Route path="*" element={<NotFound/>}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

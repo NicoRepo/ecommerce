@@ -1,17 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  Card,
-  Button,
-  Tab,
-  Tabs,
-  ListGroup,
-} from "react-bootstrap";
+import { Card, Button, Tab, Tabs, ListGroup, Badge } from "react-bootstrap";
 import { productFind } from "../../helpers";
 import { formatPrice } from "../../helpers";
 import { Loading } from "../Loading/Loading";
-import { ItemCount } from "./ItemCount";
+import { AddItemCount } from "./ItemCount";
 
 //? TODO: Split Component
 export const ItemDetailContainer = () => {
@@ -22,6 +16,14 @@ export const ItemDetailContainer = () => {
   const [qty, setQty] = useState(1);
 
   const handleQty = (amount) => setQty(qty + amount > 1 ? qty + amount : 1);
+
+  const addToCart = () => dispatch({
+    type: "ADD_TO_CART",
+    payload: {
+      product,
+      qty
+    },
+  });
 
   useEffect(() => {
     productFind({ id }).then((response) => {
@@ -58,29 +60,14 @@ export const ItemDetailContainer = () => {
                       {product.artist}
                     </Card.Subtitle>
                   </div>
-                  <div className="d-flex flex-row justify-content-between gap-3">
-                    <ItemCount qty={qty} handleQty={handleQty} />
-                    <Button
-                      variant="outline-dark"
-                      disabled
+                  <div className="d-flex flex-row justify-content-end align-items-center gap-3">
+                    <Badge
+                      className="text-dark border border-success"
+                      bg="light" style={{padding: "12px"}}
                     >
-                      Precio: ${formatPrice(product.price * qty)}
-                    </Button>
-                    
-                    <Button
-                      variant="outline-dark"
-                      onClick={() => {
-                        dispatch({
-                          type: "ADD_TO_CART",
-                          payload: {
-                            product,
-                            qty
-                          },
-                        });
-                      }}
-                    >
-                      <i className="bi bi-cart-plus me-1"></i>Añadir al Carrito
-                    </Button>
+                      $ {formatPrice(product.price * qty)}
+                    </Badge>
+                    <AddItemCount qty={qty} handleQty={handleQty} dispatch={addToCart}/>
                   </div>
                 </div>
               </Tab>

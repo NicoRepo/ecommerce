@@ -1,0 +1,10 @@
+.trash-hover {
+  transition: border-color 0.3s ease;
+  transition: transform 0.2s;
+}
+
+
+.trash-hover:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

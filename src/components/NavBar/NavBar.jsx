@@ -40,7 +40,6 @@ export const NavBar = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <CartWidget />
       </Container>

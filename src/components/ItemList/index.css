@@ -1,8 +1,11 @@
-.card {
+.item-focus {
   border: 1px solid black;
   transition: border-color 0.3s ease;
+  transition: transform 0.2s;
 }
 
-.card:hover {
+.item-focus:hover {
   border-color:black; /* Set Border Dark on Mouse Hover */
+  cursor: pointer;  
+  transform: scale(1.05);
 }
