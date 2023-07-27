@@ -7,6 +7,58 @@ const initialState = {
 
 const Context = createContext({});
 
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      const item = state.cart[action.payload.product.id];
+      const qty = action.payload.qty;
+      notifyAddProduct(action.payload.product.name);
+      //? If current productd id key is not present on cart add new product else, sum qty
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          [action.payload.product.id]: item
+            ? {
+                ...item,
+                qty: item.qty + qty,
+              }
+            : {
+                ...action.payload.product,
+                qty: qty,
+              },
+        },
+      };
+    case "REMOVE_FROM_CART":
+      const newCart = { ...state.cart };
+      const currProd = newCart[action.payload.id];
+      //? If current amount is at least 1 just decrease product qty
+      if (currProd?.qty > 1 && currProd) {
+        currProd.qty = currProd.qty - action.payload.rQty;
+        //? Case when remove is done in 2 steps and only one element remains after first removal
+        if (currProd.qty) {
+          newCart[action.payload.id] = currProd;
+        } else {
+          //? Remove
+          delete newCart[action.payload.id];
+        }
+      } else {
+        delete newCart[action.payload.id];
+      }
+      notifyRemoveProduct(action.payload.rQty);
+      return { ...state, cart: newCart };
+    default:
+      return state;
+  }
+};
+
+const Provider = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, initialState);
+  return (
+    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
+  );
+};
+
 const notifyAddProduct = (name) =>
   toast.success(`${name} añadido al carrito!`, {
     autoClose: 1000,
@@ -28,53 +80,5 @@ const notifyRemoveProduct = (amount) =>
     progress: undefined,
     theme: "light",
   });
-
-const cartReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_TO_CART":
-      const item = state.cart[action.payload.product.id];
-      const qty = action.payload.qty;
-      notifyAddProduct(action.payload.product.name);
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          [action.payload.product.id]: item
-            ? {
-                ...item,
-                qty: item.qty + qty,
-              }
-            : {
-                ...action.payload.product,
-                qty: qty,
-              },
-        },
-      };
-    case "REMOVE_FROM_CART":
-      const newCart = { ...state.cart };
-      const currProd = newCart[action.payload.id];
-      if (currProd?.qty > 1 && currProd) {
-        currProd.qty = currProd.qty - action.payload.rQty;
-        if (currProd.qty) {
-          newCart[action.payload.id] = currProd;
-        } else {
-          delete newCart[action.payload.id];
-        }
-      } else {
-        delete newCart[action.payload.id];
-      }
-      notifyRemoveProduct(action.payload.rQty)
-      return { ...state, cart: newCart };
-    default:
-      return state;
-  }
-};
-
-const Provider = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState);
-  return (
-    <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
-  );
-};
 
 export { Context, Provider };

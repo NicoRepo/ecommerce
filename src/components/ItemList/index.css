@@ -1,11 +1,32 @@
 .item-focus {
-  border: 1px solid black;
   transition: border-color 0.3s ease;
   transition: transform 0.2s;
 }
 
 .item-focus:hover {
-  border-color:black; /* Set Border Dark on Mouse Hover */
+  border-color:black;
   cursor: pointer;  
   transform: scale(1.05);
+}
+
+.mensaje {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 286px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para que el texto sea legible */
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0; /* El mensaje estará oculto inicialmente */
+  transition: opacity 0.3s;
+}
+
+.producto:hover .mensaje {
+  pointer-events: none;
+  opacity: 1; /* El mensaje se hará visible al pasar el cursor sobre el contenedor del producto */
 }

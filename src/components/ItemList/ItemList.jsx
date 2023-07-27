@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Card, Badge, Button } from "react-bootstrap";
+import { Card, Badge, Button, Fade } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";
@@ -19,10 +19,16 @@ export const ItemList = ({ product }) => {
 
   return (
     <Card
-      className="highligth-effect mx-auto item-focus"
+      className="highligth-effect mx-auto item-focus producto"      onClick={navigateItemPage}
       style={{ width: "18rem" }}
     >
-      <Card.Img variant="top" src={img} onClick={navigateItemPage} />
+      <Card.Img
+        style={{ width: "286px" }}
+        variant="top"
+        src={img}
+   
+      />
+      <div className="mensaje">Ver</div>
       <Card.Body>
         <div className="d-flex flex-column" style={{ height: "8rem" }}>
           <Card.Title className="mb-1">
@@ -41,15 +47,16 @@ export const ItemList = ({ product }) => {
             <Button
               size="sm"
               variant="outline-dark"
-              onClick={() =>
+              onClick={(e) => {
+                e.stopPropagation();
                 dispatch({
                   type: "ADD_TO_CART",
                   payload: {
                     product,
                     qty: 1,
                   },
-                })
-              }
+                });
+              }}
             >
               <i className="bi bi-cart-plus me-1"></i>Añadir al Carrito
             </Button>

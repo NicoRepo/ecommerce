@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout/Layout";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { NotFound } from "./components/NotFound/NotFound";
+import { CheckOut } from "./components/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             element={<ItemListContainer />}
           ></Route>
           <Route path="item/:id" element={<ItemDetailContainer />}></Route>
+          <Route path="check-out" element={<CheckOut />}></Route>
           <Route path="nosotros" element={<>SOON</>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>

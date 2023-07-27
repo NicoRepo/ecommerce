@@ -21,10 +21,8 @@ export const formatPrice = (price) => {
   return groups.join(".");
 };
 
-
 const productCollection = "products"
 
-//? Simulate 1s API Delay
 export const productFilter = async ({ filter = null }) => {
   let querySnapshot;
   if(filter){
@@ -37,7 +35,6 @@ export const productFilter = async ({ filter = null }) => {
   return products;
 };
 
-//? Simulate 1s API Delay
 export const productFind = async ({ id, ...props }) => {
   const docRef = doc(db, productCollection, id);
   const docSnap = await getDoc(docRef);
