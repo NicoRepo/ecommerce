@@ -1,4 +1,14 @@
-import { data } from "./API/API";
+import {
+  writeBatch,
+  addDoc,
+  getDocs,
+  getDoc,
+  collection,
+  doc,
+  query,
+  where
+} from "firebase/firestore";
+import { db } from "./firebase";
 
 export const formatPrice = (price) => {
   let stringNumber = price.toString();
@@ -12,20 +22,33 @@ export const formatPrice = (price) => {
 };
 
 
+const productCollection = "products"
+
 //? Simulate 1s API Delay
-export const productFilter = async ({ filterCallback }) => {
-  return await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data.filter((p) => filterCallback({ product: p })));
-    }, 1000);
-  });
+export const productFilter = async ({ filter = null }) => {
+  let querySnapshot;
+  if(filter){
+    querySnapshot = await getDocs(query(collection(db, productCollection), where(...filter)));
+  }else{
+    querySnapshot = await getDocs(collection(db, productCollection))
+  }
+  const products = [];
+  querySnapshot.forEach((doc) => products.push({ id: doc.id, ...doc.data() }));
+  return products;
 };
 
 //? Simulate 1s API Delay
 export const productFind = async ({ id, ...props }) => {
-  return await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(data.find((p) => p.id === id));
-    }, 1000);
+  const docRef = doc(db, productCollection, id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.exists() ? {id: docSnap.id, ...docSnap.data()} : null;
+};
+
+const writeFirestore = (products) => {
+  const batch = writeBatch(db);
+  products.forEach((p) => {
+    const _p = { ...p };
+    delete _p.id;
+    const prodRef = addDoc(collection(db, productCollection), _p);
   });
 };
