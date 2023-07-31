@@ -13,6 +13,7 @@ const categories = [
   { name: "Nu-Metal", category: "numetal" },
   { name: "Post-Hardcore", category: "posthardcore" },
   { name: "Pop Punk", category: "pop-punk" },
+  { name: "Rock", category: "rock" },
 ];
 
 export const NavBar = () => {
@@ -49,9 +50,6 @@ export const NavBar = () => {
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
-              <Nav.Link disabled as={NavLink} to="/nosotros">
-                Nosotros
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -45,7 +45,7 @@ const cartReducer = (state, action) => {
       } else {
         delete newCart[action.payload.id];
       }
-      notifyRemoveProduct(action.payload.rQty);
+      //notifyRemoveProduct(action.payload.rQty);
       return { ...state, cart: newCart };
     default:
       return state;

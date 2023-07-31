@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { Context } from "../../Context";
 import {
@@ -13,11 +13,15 @@ import {
 import { ContactForm } from "./ContactForm";
 import { formatPrice } from "../../helpers";
 import TextOverflow from "react-text-overflow";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 
-const ProductCard = ({ img, name, price, artist }) => {
+const ProductCard = ({ id, img, name, price, artist }) => {
   return (
     <Card
-      className="mx-2 my-1 d-flex flex-row align-items-center"
+      key={id}
+      className="my-1 d-flex flex-row align-items-center"
       bg="light"
       border="secondary"
     >
@@ -53,46 +57,90 @@ export const CheckOut = () => {
   const {
     state: { cart },
   } = useContext(Context);
-  return (
+
+  const [confirmState, setConfirmState] = useState(true);
+  const [formEditable, setFormEditable] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      region: "15",
+    },
+  });
+
+  const onSubmit = (data) => {
+    setConfirmState(false);
+    setFormEditable(true);
+  };
+
+  const onError = (error) => {
+    toast.error(`No has completado el formulario de contacto`, {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+
+  return Object.values(cart).length ? (
     <Container as={Card}>
       <Row>
         <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6} className="py-3">
           <Card border="dark">
-            <Card.Body>
-              <ContactForm />
-            </Card.Body>
+            <ContactForm
+              register={register}
+              errors={errors}
+              handleSubmit={handleSubmit}
+              onSubmit={onSubmit}
+              getValues={getValues}
+              onError={onError}
+              formEditable={formEditable}
+            />
           </Card>
         </Col>
         <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6} className="py-3">
           <Card border="dark" className="h-100">
-            <Card.Body>
+            <Card.Body style={{ height: "730px" }}>
               <Card.Title className="text-start">Resumen Pedido</Card.Title>
               <hr />
               <Stack
-                className="overflow-auto border border-dark rounded"
+                className="overflow-auto"
                 direction="vertical"
-                style={{ maxHeight: "610px" }}
+                style={{ height: "630px" }}
               >
                 {Object.values(cart).map((p) => (
-                  <ProductCard {...p} />
+                  <ProductCard key={`p-card-${p.id}`} {...p} />
                 ))}
               </Stack>
-              <hr />
-              <div className="d-flex justify-content-end align-items-center gap-3">
-                <div className="fs-5 fw-bold border p-1 border-dark rounded">
+            </Card.Body>
+            <Card.Footer>
+              <div className="d-flex justify-content-end mt-auto align-items-center gap-3">
+                <div
+                  className="border border-dark rounded"
+                  style={{ padding: "0.375rem 0.75rem" }}
+                >
                   Total: $
                   {formatPrice(
                     Object.values(cart).reduce((a, v) => a + v.qty * v.price, 0)
                   )}
                 </div>
-                <Button variant="success" disabled type="submit">
+                <Button variant="success" disabled={confirmState} type="submit">
                   Confirmar Pedido
                 </Button>
               </div>
-            </Card.Body>
+            </Card.Footer>
           </Card>
         </Col>
       </Row>
     </Container>
+  ) : (
+    <Navigate to="/" />
   );
 };

@@ -60,7 +60,7 @@ export const ItemDetailContainer = () => {
                       {product.artist}
                     </Card.Subtitle>
                   </div>
-                  <div className="d-flex flex-row justify-content-end align-items-center gap-3">
+                  <div className="d-flex flex-row flex-wrap justify-content-end align-items-center gap-3">
                     <Badge
                       className="text-dark border border-success"
                       bg="light" style={{padding: "12px"}}
@@ -90,7 +90,7 @@ export const ItemDetailContainer = () => {
         </div>
         <Card.Title>Descripción</Card.Title>
         {/* This should be rendered as MarkDown to preserve description styling from official description */}
-        <Card.Text className="text-break ">{product.description}</Card.Text>
+        <Card.Text className="text-break" style={{textAlign: "justify"}}>{product.description}</Card.Text>
       </Card.Body>
     </Card>
   );

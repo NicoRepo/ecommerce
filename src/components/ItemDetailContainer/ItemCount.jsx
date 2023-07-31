@@ -16,6 +16,7 @@ export const RemoveItemCount = ({
         type="number"
         readOnly
         aria-label="Cantidad"
+        className="text-center"
         value={qty}
         style={{ maxWidth: inputSize }}
       />
