@@ -4,7 +4,14 @@ import { formatPrice } from "../../helpers";
 import { RemoveQtyModal } from "./RemoveQtyModal";
 import TextOverflow from "react-text-overflow";
 
-export const ListProductItem = ({ id, img, name, qty, price }) => {
+export const ListProductItem = ({
+  id,
+  img,
+  name,
+  qty,
+  price,
+  readOnly = false,
+}) => {
   const [show, setShow] = useState(false);
   return (
     <div
@@ -20,13 +27,17 @@ export const ListProductItem = ({ id, img, name, qty, price }) => {
       <div className="d-flex gap-2">
         <Badge bg="dark">x{qty}</Badge>
         <Badge bg="warning">${formatPrice(qty * price)}</Badge>
-        <Badge
-          bg="danger"
-          className="trash-hover"
-          onClick={() => setShow(true)}
-        >
-          <i className="bi bi-trash"></i>
-        </Badge>
+        {!readOnly && (
+          <>
+            <Badge
+              bg="danger"
+              className="trash-hover"
+              onClick={() => setShow(true)}
+            >
+              <i className="bi bi-trash"></i>
+            </Badge>
+          </>
+        )}
       </div>
       <RemoveQtyModal
         name={name}

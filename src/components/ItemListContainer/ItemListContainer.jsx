@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { productFilter } from "../../helpers";
-import { useParams, useNavigate } from "react-router-dom";
+import { productFilter } from "../../API/API";
+import { useParams } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
 import { Loading } from "../Loading/Loading";
 import { Stack } from "react-bootstrap";

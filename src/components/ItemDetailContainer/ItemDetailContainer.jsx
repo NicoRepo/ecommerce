@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Button, Tab, Tabs, ListGroup, Badge } from "react-bootstrap";
-import { productFind } from "../../helpers";
+import { Card, Tab, Tabs, ListGroup, Badge } from "react-bootstrap";
+import { productFind } from "../../API/API";
 import { formatPrice } from "../../helpers";
 import { Loading } from "../Loading/Loading";
 import { AddItemCount } from "./ItemCount";

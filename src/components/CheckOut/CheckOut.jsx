@@ -1,57 +1,22 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../Context";
 import { ContactForm } from "./ContactForm";
 import { formatPrice } from "../../helpers";
-import TextOverflow from "react-text-overflow";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { createOrder } from "../../API/API";
+import { ProductCard } from "./ProductCard";
 import {
   Card,
   Col,
   Container,
   Row,
-  Badge,
   Button,
   Stack,
 } from "react-bootstrap";
 
-const ProductCard = ({ id, img, name, price, artist }) => {
-  return (
-    <Card
-      key={id}
-      className="my-1 d-flex flex-row align-items-center"
-      bg="light"
-      border="secondary"
-    >
-      <Card.Img
-        className="border rounded"
-        variant="left"
-        src={img}
-        alt={name}
-        style={{ width: "80px" }}
-      />
-      <Card.Body>
-        <div className="d-flex flex-row align-items-center">
-          <div className="d-flex flex-column">
-            <Card.Title className="mb-1">
-              <TextOverflow text={name} />
-            </Card.Title>
-            <Card.Subtitle className="mb-1 text-secondary">
-              {artist}
-            </Card.Subtitle>
-          </div>
-          <div className="ms-auto">
-            <Badge className="text-dark p-2 border border-success" bg="light">
-              $ {formatPrice(price)}
-            </Badge>
-          </div>
-        </div>
-      </Card.Body>
-    </Card>
-  );
-};
+
 
 export const CheckOut = () => {
   const {
@@ -60,6 +25,9 @@ export const CheckOut = () => {
 
   const [confirmState, setConfirmState] = useState(true);
   const [formEditable, setFormEditable] = useState(false);
+  const [orderData, setOrderData] = useState(null);
+  const navigate = useNavigate();
+  const {dispatch} = useContext(Context);
   const {
     register,
     handleSubmit,
@@ -74,7 +42,31 @@ export const CheckOut = () => {
   const onSubmit = (data) => {
     setConfirmState(false);
     setFormEditable(true);
+    data["orderDetail"] = Object.values(cart).map(prod => {
+      const { id, price, name, qty, img } = prod;
+      return { id, price, name, qty, img }
+    });
+    setOrderData(data);
   };
+
+  const placeOrder = () => {
+    createOrder(orderData).then((created) => {
+      if(created){
+        toast.success("Orden creada exitosamente", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        dispatch({type: "EMPTY_CART"})
+        navigate(`/order/${created.id}`)
+      }
+    });
+  }
 
   const onError = (error) => {
     toast.error(`No has completado el formulario de contacto`, {
@@ -131,7 +123,7 @@ export const CheckOut = () => {
                     Object.values(cart).reduce((a, v) => a + v.qty * v.price, 0)
                   )}
                 </div>
-                <Button variant="success" disabled={confirmState} type="submit">
+                <Button variant="success" disabled={confirmState} onClick={placeOrder} type="submit">
                   Confirmar Pedido
                 </Button>
               </div>

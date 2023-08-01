@@ -48,6 +48,8 @@ const cartReducer = (state, action) => {
       //* Spam
       //notifyRemoveProduct(action.payload.rQty);
       return { ...state, cart: newCart };
+    case "EMPTY_CART":
+      return initialState;
     default:
       return state;
   }

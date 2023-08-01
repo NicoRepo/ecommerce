@@ -1,209 +1,56 @@
-export const data = [
-  {
-    id: "fa4bca6d-4589-4409-898e-67559b5efd76",
-    category: "posthardcore",
-    name: "Live at Starland Ballroom",
-    img: "https://silversteinmusic.com/cdn/shop/files/Starland_493x_3bfa9c96-95d7-42c5-a33d-8cef7abb8207.webp?v=1684423686",
-    artist: "Silverstein",
-    price: 25000,
-    tracklist: [
-      "Your Sword Versus My Dagger",
-      "Smile In Your Sleep",
-      "The Ides of March",
-      "Fist Wrapped in Blood",
-      "Discovering the Waterfront",
-      "Defend You",
-      "My Heroine",
-      "Always and Never",
-      "Already Dead",
-      "Three Hours Back",
-      "Call it Karma",
-    ],
-    description:
-      "Silverstein interpreta Discovering the Waterfront en Starland Ballroom (Álbum en directo). Grabado en directo el 7 de marzo de 2020, Sayreville, Nueva Jersey en Starland Ballroom.",
-  },
-  {
-    id: "2d0f26cc-1483-4a4d-b2bd-7b1c6b7cb30a",
-    category: "posthardcore",
-    name: "When Broken 15 Easily Fixed (Live)",
-    img: "https://i.discogs.com/hE1YtOdsWZuyUXN17nj24MANzJe_Zjy-a5k4RMzE8Zc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NTQ4/NTY1LTE1NzY4Mzk2/OTMtMjU1NS5qcGVn.jpeg",
-    artist: "Silverstein",
-    price: 20000,
-    tracklist: [
-      "Smashed Into Pieces (Live in Anaheim, CA)",
-      "Red Light Pledge (Live in Atlanta, GA)",
-      "Giving Up (Live in Los Angeles, CA)",
-      "November (Live in London, ON)",
-      "Last Days of Summer (Live in Atlanta, GA)",
-      "Bleeds No More (Live in Orlando, FL)",
-      "Hear Me Out (Live in Dallas, TX)",
-      "The Weak and the Wounded (Live in Phoenix, AZ)",
-      "Wish I Could Forget You (Live in Montreal, QC)",
-      "When Broken is Easily Fixed (Live in New Orleans, LA)",
-    ],
-    description:
-      "Grabado EN DIRECTO por Norteamérica en la gira 2018-2019 de la banda celebrando los 15 años de su álbum debut, When Broken is Easily Fixed.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-2de3c3a2de82",
-    category: "posthardcore",
-    name: "REDUX: The First 10 Years",
-    img: "https://silversteinmusic.com/cdn/shop/files/silverstein_6287_750x.webp?v=1684428953",
-    artist: "Silverstein",
-    price: 28000,
-    tracklist: [
-      "Smashed Into Pieces",
-      "Smile In Your Sleep",
-      "American Dream",
-      "Bleeds No More",
-      "My Heroine",
-      "Vices",
-      "Your Sword vs My Dagger",
-      "If You Could See Into My Soul",
-      "Giving Up",
-      "Still Dreaming (Acoustic)",
-      "Red Light Pledge",
-      "Call It Karma",
-    ],
-    description:
-      "REDUX: The First 10 Years es un álbum de regrabaciones de la banda canadiense de post-hardcore Silverstein, publicado en 2019 de forma independiente por la propia banda. El álbum consta de 12 canciones regrabadas de sus primeros cuatro álbumes que fueron lanzados en sus primeros diez años como banda.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-7b1c2b7cb30a",
-    category: "funk",
-    name: "La Medicina",
-    img: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/d2/fb/8f/d2fb8f32-8e0f-4ddc-0c8b-9ce1c2b14c11/05099970437553.jpg/1200x1200bf-60.jpg",
-    artist: "Los Tetas",
-    price: 20000,
-    tracklist: [
-      "Planeta",
-      "Porcel",
-      "El Chavo",
-      "Funky Life",
-      "La Calma",
-      "La Eternidad",
-      "Primavera",
-      "El Elemento",
-      "Contra Viento y Marea",
-      "Papi ¿Dónde Está el Funk?",
-      "Santiago",
-      "Bola Disco",
-      "Colón",
-      "James Brown",
-      "La Medicina",
-    ],
-    description:
-      "La medicina es el segundo álbum de estudio del grupo chileno de funk Los Tetas. Lanzado al mercado en el año 1997, el disco apostó por un giro mucho más drástico hacia el funk y la música negra que su predecesor, Mama funk, el cual era de un corte mucho más roquero y experimental. Los sonoridad se amplía con respecto a la de su primer disco, pues se integran muchos más bronces permitiendo así, que lo melódico del disco aporte a transportarnos hacia un estilo mucho más clásico, que se asemeja a los ritmos setenteros de James Brown y George Clinton.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-6b1c6b7cb30a",
-    category: "metal",
-    name: "Ride The Lightning",
-    img: "https://cdn.media.amplience.net/i/metallica/ride-the-lightning_cover?fmt=auto&maxW=1050",
-    artist: "Metallica",
-    price: 20000,
-    tracklist: [
-      "Fight Fire with Fire",
-      "Ride the Lightning",
-      "For Whom the Bell Tolls",
-      "Fade to Black",
-      "Trapped Under Ice",
-      "Escape",
-      "Creeping Death",
-      "The Call of Ktulu",
-    ],
-    description:
-      "Ride the Lightning es el segundo álbum de estudio del grupo musical estadounidense de thrash metal Metallica. Fue publicado el 27 de julio de 1984 bajo el sello discográfico Megaforce Records. Ride the Lightning fue certificado como álbum de oro por la RIAA el 5 de noviembre de 1987 y fue certificado disco de platino 5x el 9 de junio de 2003.2​ El álbum es considerado como un álbum de thrash metal clásico por los fanes del grupo, críticos y miembros de Metallica y es considerado como uno de los mejores álbumes de metal de todos los tiempos.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-7b1c6b7cb32a",
-    category: "numetal",
-    name: "Meteora",
-    img: "https://m.media-amazon.com/images/I/71-nhMkC-vL._UF1000,1000_QL80_.jpg",
-    artist: "Linkin park",
-    price: 20000,
-    tracklist: [
-      "Foreword",
-      "Don't Stay",
-      "Somewhere I Belong",
-      "Lying from You",
-      "Hit the Floor",
-      "Easier to Run",
-      "Faint",
-      "Figure.09",
-      "Breaking the Habit",
-      "From the inside",
-      "Nobody's Listening",
-      "Session",
-      "Numb",
-    ],
-    description:
-      "Meteora es el segundo álbum del grupo Linkin Park, lanzado el 25 de marzo de 2003. El álbum ha vendido 13 300 000 de copias en todo el mundo, 6 millones solo en los EE. UU. Solo en su primera semana vendió un estimado de 810 000 copias.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-ddddd",
-    category: "pop-punk",
-    name: "Brand New Eyes",
-    img: "https://cdns-images.dzcdn.net/images/cover/1346bb36e5d61b9fea447a9b3ea50f54/500x500.jpg",
-    artist: "Paramore",
-    price: 23000,
-    tracklist: [
-      "Careful",
-      "Ignorance",
-      "Playing God",
-      "Brick By Boring Brick",
-      "Turn It Off",
-      "The Only Exception",
-      "Feeling Sorry",
-      "Looking Up",
-      "Where The Lines Overlap",
-      "Misguided Ghosts",
-      "All I Wanted",
-    ],
-    description:
-      "Brand New Eyes —en español: Con nuevos ojos— es el tercer álbum de estudio de Paramore, lanzado el 29 de septiembre de 2009. El álbum fue producido por Rob Cavallo, quién trabajo anteriormente con Paramore en el sencillo «Decode» y fue grabado en Hidden Hills (California) en el periodo de enero a marzo del año 2009. Brand New Eyes es el álbum más exitoso de Paramore hasta la fecha, recibiendo criticas positivas por partes de expertos en música y liderando las listas de ventas.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-7b1c6b712a0a",
-    category: "pop-punk",
-    name: "All We Know Is Falling",
-    img: "https://upload.wikimedia.org/wikipedia/en/9/9e/Paramore_-_All_We_Know_Is_Falling.png",
-    artist: "Paramore",
-    price: 27000,
-    tracklist: [
-      "Careful",
-      "Ignorance",
-      "Playing God",
-      "Brick By Boring Brick",
-      "Turn It Off",
-      "The Only Exception",
-      "Feeling Sorry",
-      "Looking Up",
-      "Where The Lines Overlap",
-      "Misguided Ghosts",
-      "All I Wanted",
-    ],
-    description:
-      "All We Know Is Falling (—en español: Todo lo que conocemos está cayendo—) es el álbum debut de Paramore. Fue lanzado al mercado el 26 de julio de 2005 en los Estados Unidos, bajo el sello independiente Fueled By Ramen.",
-  },
-  {
-    id: "b79cf20f-0988-4915-90d7-7b1c6b7cb90x",
-    category: "metal",
-    name: "Master Of Puppets",
-    img: "https://www.revolvermag.com/sites/default/files/styles/original_image__844px_x_473px_/public/media/section-media/master_cover.jpg?itok=L1JgJGah&timestamp=1508341064",
-    artist: "Metallica",
-    price: 20000,
-    tracklist: [
-      "Battery",
-      "Master Of Puppets",
-      "The Thing That Should Not Be",
-      "Welcome Home (Sanitarium)",
-      "Disposable Heroes",
-      "Leper Messiah",
-      "Orion",
-      "Damage, Inc.",
-    ],
-    description:
-      "La banda de Thrash Metal estadounidense Metallica vuelve a la carga después de su anterior y exitoso álbum Ride the Lightning, tras estar dos años haciendo una gira alrededor del mundo. Master Of Puppets contiene 8 canciones con las que podremos disfrutar de casi 55 minutos del más puro Thrash Metal al que nos tienen acostumbrados los americanos, liderados por el cantante y guitarrista rítmico James Hetfield y el batería Lars Ulrich.",
-  },
-];
+import {
+  writeBatch,
+  addDoc,
+  getDocs,
+  getDoc,
+  collection,
+  doc,
+  query,
+  where
+} from "firebase/firestore";
+import { db } from "../firebase";
+
+const productCollection = "products"
+const oderCollection = "orders";
+
+export const productFilter = async ({ filter = null }) => {
+  let querySnapshot;
+  if(filter){
+    querySnapshot = await getDocs(query(collection(db, productCollection), where(...filter)));
+  }else{
+    querySnapshot = await getDocs(collection(db, productCollection))
+  }
+  const products = [];
+  querySnapshot.forEach((doc) => products.push({ id: doc.id, ...doc.data() }));
+  return products;
+};
+
+export const productFind = async ({ id, ...props }) => {
+  const docRef = doc(db, productCollection, id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.exists() ? {id: docSnap.id, ...docSnap.data()} : null;
+};
+
+export const createOrder = async (data) => {
+  let rtv = null;
+  rtv = await addDoc(collection(db, oderCollection), data);
+  return rtv;
+}
+
+export const getOrder = async ({orderId}) => {
+  let rtv = null
+  const loot = await getDoc(doc(db, oderCollection, orderId));
+  if (loot.exists()) {
+    rtv = {id: loot.id, ...loot.data()}
+  }
+  return rtv;
+}
+
+const writeFirestore = (products) => {
+  const batch = writeBatch(db);
+  products.forEach((p) => {
+    const _p = { ...p };
+    delete _p.id;
+    const prodRef = addDoc(collection(db, productCollection), _p);
+  });
+};

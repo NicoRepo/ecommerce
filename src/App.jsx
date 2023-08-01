@@ -4,6 +4,7 @@ import { ItemListContainer } from "./components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { NotFound } from "./components/NotFound/NotFound";
 import { CheckOut } from "./components/CheckOut/CheckOut";
+import { OrderDetail } from "./components/CheckOut/OrderDetail";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           ></Route>
           <Route path="item/:id" element={<ItemDetailContainer />}></Route>
           <Route path="check-out" element={<CheckOut />}></Route>
-          <Route path="nosotros" element={<>SOON</>}></Route>
+          <Route path="order/:orderId" element={<OrderDetail/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
