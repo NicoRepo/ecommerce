@@ -3,8 +3,8 @@ import { Layout } from "./components/Layout/Layout";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { NotFound } from "./components/NotFound/NotFound";
-import { CheckOut } from "./components/CheckOut/CheckOut";
-import { OrderDetail } from "./components/CheckOut/OrderDetail";
+import { CheckOut } from "./components/Checkout/CheckOut";
+import { Brief } from "./components/Checkout/Brief";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           ></Route>
           <Route path="item/:id" element={<ItemDetailContainer />}></Route>
           <Route path="check-out" element={<CheckOut />}></Route>
-          <Route path="order/:orderId" element={<OrderDetail/>}></Route>
+          <Route path="order/:orderId" element={<Brief/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>

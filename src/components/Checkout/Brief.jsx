@@ -6,7 +6,7 @@ import { ListProductItem } from "../NavBar/ListProductItem";
 import { getOrder } from "../../API/API";
 import { formatPrice } from "../../helpers";
 
-export const OrderDetail = () => {
+export const Brief = () => {
   const { orderId } = useParams();
   const [orderData, setOrderData] = useState(null);
   const navigate = useNavigate();
