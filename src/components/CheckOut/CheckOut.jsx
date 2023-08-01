@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Context } from "../../Context";
+import { ContactForm } from "./ContactForm";
+import { formatPrice } from "../../helpers";
+import TextOverflow from "react-text-overflow";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 import {
   Card,
   Col,
@@ -10,12 +16,6 @@ import {
   Button,
   Stack,
 } from "react-bootstrap";
-import { ContactForm } from "./ContactForm";
-import { formatPrice } from "../../helpers";
-import TextOverflow from "react-text-overflow";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
 
 const ProductCard = ({ id, img, name, price, artist }) => {
   return (

@@ -38,7 +38,6 @@ export const NavBar = () => {
               <Nav.Link as={NavLink} to="/">
                 Inicio
               </Nav.Link>
-              {/* <Nav.Link as={NavLink} to="/category/vinilo">Vinilos</Nav.Link> */}
               <NavDropdown title="Categorias">
                 {categories.map((c) => (
                   <NavDropdown.Item

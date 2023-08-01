@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Badge, Image } from "react-bootstrap";
 import { formatPrice } from "../../helpers";
-import { RemoveQtyModal } from "./RemoveQtyModa";
+import { RemoveQtyModal } from "./RemoveQtyModal";
 import TextOverflow from "react-text-overflow";
 
 export const ListProductItem = ({ id, img, name, qty, price }) => {

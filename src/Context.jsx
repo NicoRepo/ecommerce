@@ -35,7 +35,7 @@ const cartReducer = (state, action) => {
       //? If current amount is at least 1 just decrease product qty
       if (currProd?.qty > 1 && currProd) {
         currProd.qty = currProd.qty - action.payload.rQty;
-        //? Case when remove is done in 2 steps and only one element remains after first removal
+        //? Case when remove was made in 2 steps and only one element remains after first removal
         if (currProd.qty) {
           newCart[action.payload.id] = currProd;
         } else {
@@ -45,6 +45,7 @@ const cartReducer = (state, action) => {
       } else {
         delete newCart[action.payload.id];
       }
+      //* Spam
       //notifyRemoveProduct(action.payload.rQty);
       return { ...state, cart: newCart };
     default:

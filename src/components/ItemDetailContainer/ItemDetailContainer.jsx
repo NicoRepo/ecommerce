@@ -15,6 +15,7 @@ export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
   const [qty, setQty] = useState(1);
 
+  //? Add elements. Prevents current amount goung below 1 and work with negative valus
   const handleQty = (amount) => setQty(qty + amount > 1 ? qty + amount : 1);
 
   const addToCart = () => dispatch({
@@ -60,7 +61,7 @@ export const ItemDetailContainer = () => {
                       {product.artist}
                     </Card.Subtitle>
                   </div>
-                  <div className="d-flex flex-row flex-wrap justify-content-end align-items-center gap-3">
+                  <div className="d-flex flex-row fl justify-content-end align-items-center gap-3">
                     <Badge
                       className="text-dark border border-success"
                       bg="light" style={{padding: "12px"}}

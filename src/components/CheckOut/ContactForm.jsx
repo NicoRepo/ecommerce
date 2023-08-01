@@ -1,8 +1,11 @@
 import { Form, Card, Row, Col, Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { regions } from "./formData";
 
+/**
+ * Formulario de Contacto Completo
+ * Valida todos los campos mediante RegExp
+ */
 export const ContactForm = ({
   errors,
   onSubmit,
@@ -284,7 +287,7 @@ export const ContactForm = ({
       <Card.Footer>
         <div className="d-flex justify-content-end">
           <Button variant="outline-dark" type="submit" disabled={formEditable}>
-            Continuar
+            Confirmar
           </Button>
         </div>
       </Card.Footer>

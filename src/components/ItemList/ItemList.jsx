@@ -19,7 +19,8 @@ export const ItemList = ({ product }) => {
 
   return (
     <Card
-      className="highligth-effect mx-auto item-focus producto"      onClick={navigateItemPage}
+      className="highligth-effect mx-auto item-focus producto"
+      onClick={navigateItemPage}
       style={{ width: "18rem" }}
     >
       <Card.Img
