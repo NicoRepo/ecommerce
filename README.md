@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Ecommerce - Curso React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositorio contiene el proyecto final en el cual se aplicaron todos los conocimientos entregados durante el curso de React. VSHOP es una plataforma de e-commerce con una temática enfocada en la venta de vinilos.
 
-## Available Scripts
+## Detalles Técnicos 🔧
 
-In the project directory, you can run:
+Este proyecto fue construido utilizando las siguientes librerías.
 
-### `npm start`
+- [React Bootstrap](https://react-bootstrap.netlify.app/)
+  - Componentes fáciles de usar y adaptar. Sobre todo el manejo de Modales el cual ya está implementado.
+- [Bootstrap](https://getbootstrap.com/)
+  - Hoja de estilos base. Utilidades tales como color de fuente, etc.
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
+  - Iconos Varios.
+- [React Hook Form](https://react-hook-form.com/)
+  - El manejo de formularios es mas sencillo al utilizar solo un Hook y un solo Submit Handler para manejar el resultado del fomulario.
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+  - Alertas para el usuario fáciles de gatillar en cualquier etapa/flujo.
+- [React Text Overflow](https://github.com/loktar00/react-text-overflow#readme)
+  - Una manera rápida de majenar el overlflow de los titulos usando componentes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Requisitos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Nodejs](https://nodejs.org/es)
+### Instalación
 
-### `npm test`
+_1 -_ Clonar/[Descargar](https://github.com/NicoRepo/ecommerce/archive/refs/heads/main.zip) el Repositorio.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$ git clone https://github.com/NicoRepo/ecommerce.git
+```
 
-### `npm run build`
+_2 -_ Instanciar/Navegar una terminal en la raiz del proyeto.
+```bash
+$ cd ../../ecommerce
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_3 -_ Instalar las librerías necesarias.
+```bash
+$ npm install
+```
+_4 -_ Iniciar el servidor local
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+$ npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Despliegue 📦
 
-### `npm run eject`
+El despliegue fue realizado mediante NGINX y está disponible en el siguiente [enlace](https://vshop.nmaza.dev/).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
