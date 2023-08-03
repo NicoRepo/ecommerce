@@ -22,7 +22,7 @@ export const ContactForm = ({
   return (
     <Form noValidate onSubmit={handleSubmit(onSubmit, onError)}>
       <fieldset disabled={formEditable}>
-        <Card.Body style={{height: "730px"}}>
+        <Card.Body style={{height: "820px"}}>
           <Card.Title className="text-start">Contacto</Card.Title>
           <hr />
           <Row className="mb-2">
@@ -55,6 +55,37 @@ export const ContactForm = ({
               {errors.email && (
                 <Form.Text className="text-danger" type="invalid">
                   {errors.email.message}
+                </Form.Text>
+              )}
+            </Form.Group>
+            <Form.Group
+              as={Col}
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              xl={12}
+              xxl={12}
+              className="mb-2"
+              controlId="emailValidation2"
+            >
+              <Form.Label>Confirmar Correo *</Form.Label>
+              <Form.Control
+                {...register("emailConfirm", {
+                  validate: (value) => {
+                    const { email } = getValues();
+                    return (
+                      (email === value || !value) ||
+                      "El correo no coindice."
+                    );
+                  },
+                })}
+                placeholder="Correo"
+                defaultValue=""
+              />
+              {errors.emailConfirm && (
+                <Form.Text className="text-danger" type="invalid">
+                  {errors.emailConfirm.message}
                 </Form.Text>
               )}
             </Form.Group>
@@ -103,7 +134,7 @@ export const ContactForm = ({
               xl={6}
               xxl={6}
               className="mb-2"
-              controlId="nameValidation"
+              controlId="lastNameValidation"
             >
               <Form.Label>Apellido *</Form.Label>
               <Form.Control
@@ -135,7 +166,7 @@ export const ContactForm = ({
               xl={12}
               xxl={12}
               className="mb-2"
-              controlId="emailValidation"
+              controlId="RUTValidation"
             >
               <Form.Label>RUT *</Form.Label>
               <Form.Control
@@ -167,7 +198,7 @@ export const ContactForm = ({
               xl={12}
               xxl={12}
               className="mb-2"
-              controlId="emailValidation"
+              controlId="addressValidation"
             >
               <Form.Label>Dirección *</Form.Label>
               <Form.Control
@@ -199,11 +230,10 @@ export const ContactForm = ({
               xl={6}
               xxl={6}
               className="mb-2"
-              controlId="emailValidation"
+              controlId="regionValidation"
             >
               <Form.Label>Región *</Form.Label>
-              <Form.Control
-                as="select"
+              <Form.Select
                 {...register("region", {
                   required: true,
                 })}
@@ -220,7 +250,7 @@ export const ContactForm = ({
                     {r.region}
                   </option>
                 ))}
-              </Form.Control>
+              </Form.Select>
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group
@@ -232,12 +262,11 @@ export const ContactForm = ({
               xl={6}
               xxl={6}
               className="mb-2"
-              controlId="emailValidation"
+              controlId="comunaValidation"
             >
               <Form.Label>Comuna *</Form.Label>
-              <Form.Control
+              <Form.Select
                 {...register("comuna")}
-                as="select"
                 placeholder="Comuna"
                 defaultValue=""
               >
@@ -246,7 +275,7 @@ export const ContactForm = ({
                     {c}
                   </option>
                 ))}
-              </Form.Control>
+              </Form.Select>
             </Form.Group>
             <Form.Group
               as={Col}
@@ -257,7 +286,7 @@ export const ContactForm = ({
               xl={12}
               xxl={12}
               className="mb-2"
-              controlId="emailValidation"
+              controlId="cellPhoneValidation"
             >
               <Form.Label>Teléfono *</Form.Label>
               <Form.Control

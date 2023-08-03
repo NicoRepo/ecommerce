@@ -1,8 +1,11 @@
-import { Card, Badge } from "react-bootstrap";
+import { useState } from "react";
+import { Card, Badge, Stack } from "react-bootstrap";
 import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";
+import { RemoveQtyModal } from "../NavBar/RemoveQtyModal";
 
-export const ProductCard = ({ id, img, name, price, artist }) => {
+export const ProductCard = ({ id, img, name, price, artist, qty }) => {
+  const [show, setShow] = useState(false);
   return (
     <Card
       key={id}
@@ -27,13 +30,30 @@ export const ProductCard = ({ id, img, name, price, artist }) => {
               {artist}
             </Card.Subtitle>
           </div>
-          <div className="ms-auto">
+          <div className="ms-auto d-flex flex-row gap-2 align-items-center">
+            <Badge bg="dark" className="p-2">
+              x{formatPrice(qty)}
+            </Badge>
             <Badge className="text-dark p-2 border border-success" bg="light">
               $ {formatPrice(price)}
+            </Badge>
+            <Badge
+              bg="danger"
+              className="trash-hover p-2"
+              onClick={() => setShow(true)}
+            >
+              <i className="bi bi-trash"></i>
             </Badge>
           </div>
         </div>
       </Card.Body>
+      <RemoveQtyModal
+        name={name}
+        setShow={setShow}
+        show={show}
+        qty={qty}
+        id={id}
+      />
     </Card>
   );
 };

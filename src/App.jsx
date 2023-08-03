@@ -17,7 +17,7 @@ function App() {
             element={<ItemListContainer />}
           ></Route>
           <Route path="item/:id" element={<ItemDetailContainer />}></Route>
-          <Route path="check-out" element={<CheckOut />}></Route>
+          <Route path="cart" element={<CheckOut />}></Route>
           <Route path="order/:orderId" element={<Brief/>}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>

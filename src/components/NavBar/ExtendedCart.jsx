@@ -50,7 +50,7 @@ export const ExtendedCart = ({ show, handleState, cart }) => {
             disabled={Object.values(cart).length > 0 ? false : true}
             onClick={() => {
               handleState(false);
-              navigate("/check-out");
+              navigate("/cart");
             }}
             variant="dark"
           >
