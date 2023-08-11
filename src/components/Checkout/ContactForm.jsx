@@ -300,7 +300,7 @@ export const ContactForm = ({
                     message: "El teléfono no es válido",
                   },
                 })}
-                placeholder="Teléfono (9-12345678)"
+                placeholder="Teléfono (912345678)"
                 defaultValue=""
               />
               {errors.cellPhone && (

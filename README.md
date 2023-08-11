@@ -7,13 +7,13 @@ Este repositorio contiene el proyecto final en el cual se aplicaron todos los co
 Este proyecto fue construido utilizando las siguientes librerías.
 
 - [React Bootstrap](https://react-bootstrap.netlify.app/)
-  - Componentes fáciles de usar y adaptar. Sobre todo el manejo de Modales el cual ya está implementado.
+  - Componentes nativos de Bootstrap portados a React. Sobre todo el manejo de Modales el cual ya está implementado.
 - [Bootstrap](https://getbootstrap.com/)
-  - Hoja de estilos base. Utilidades tales como color de fuente, etc.
+  - Hoja de estilos base. Utilidades básicas para aplicar en componentes propios, etc.
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
   - Iconos Varios.
 - [React Hook Form](https://react-hook-form.com/)
-  - El manejo de formularios es mas sencillo al utilizar solo un Hook y un solo Submit Handler para manejar el resultado del fomulario.
+  - El manejo de formularios es mas sencillo al utilizar solo un Hook y un solo Submit Handler para manejar el resultado del fomulario. Permite integracion de RegExp y validadores al momento de declarar un campo de cualquier formulario.
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
   - Alertas para el usuario fáciles de gatillar en cualquier etapa/flujo.
 - [React Text Overflow](https://github.com/loktar00/react-text-overflow#readme)

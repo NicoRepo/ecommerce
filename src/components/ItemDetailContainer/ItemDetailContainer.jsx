@@ -76,7 +76,7 @@ export const ItemDetailContainer = () => {
                       $ {formatPrice(product.price * qty)}
                     </Badge>
                     <Badge
-                      className="text-dark border border-success"
+                      className="text-dark border border-warning"
                       bg="light" style={{padding: "12px"}}
                     >
                       Stock: {product.stock}
