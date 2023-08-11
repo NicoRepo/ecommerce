@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../Context";
+import { Context } from "../../CartContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, Tab, Tabs, ListGroup, Badge } from "react-bootstrap";
 import { productFind } from "../../API/API";
 import { formatPrice } from "../../helpers";
 import { Loading } from "../Loading/Loading";
 import { AddItemCount } from "./ItemCount";
+import { toast } from "react-toastify";
 
 //? TODO: Split Component
 export const ItemDetailContainer = () => {
@@ -16,7 +17,13 @@ export const ItemDetailContainer = () => {
   const [qty, setQty] = useState(1);
 
   //? Add elements. Prevents current amount goung below 1 and work with negative valus
-  const handleQty = (amount) => setQty(qty + amount > 1 ? qty + amount : 1);
+  const handleQty = (amount) => {
+    if(qty < product.stock){
+      setQty(qty + amount > 1 ? qty + amount : 1);
+    }else{
+      toast.error("No puedes añadir más elementos de los que hay disponibles en stock", {position: "top-right"});
+    }
+  }
 
   const addToCart = () => dispatch({
     type: "ADD_TO_CART",
@@ -67,6 +74,12 @@ export const ItemDetailContainer = () => {
                       bg="light" style={{padding: "12px"}}
                     >
                       $ {formatPrice(product.price * qty)}
+                    </Badge>
+                    <Badge
+                      className="text-dark border border-success"
+                      bg="light" style={{padding: "12px"}}
+                    >
+                      Stock: {product.stock}
                     </Badge>
                     <AddItemCount qty={qty} handleQty={handleQty} dispatch={addToCart}/>
                   </div>

@@ -12,23 +12,31 @@ const cartReducer = (state, action) => {
     case "ADD_TO_CART":
       const item = state.cart[action.payload.product.id];
       const qty = action.payload.qty;
-      notifyAddProduct(action.payload.product.name);
-      //? If current productd id key is not present on cart add new product else, sum qty
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          [action.payload.product.id]: item
-            ? {
-                ...item,
-                qty: item.qty + qty,
-              }
-            : {
-                ...action.payload.product,
-                qty: qty,
-              },
-        },
-      };
+      if (item && item?.qty >= item?.stock) {
+        toast.error(
+          "No puedes añadir más elementos de los que hay disponibles en stock",
+          { position: "top-right" }
+        );
+        return { ...state };
+      } else {
+        notifyAddProduct(action.payload.product.name);
+        //? If current productd id key is not present on cart add new product else, sum qty
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            [action.payload.product.id]: item
+              ? {
+                  ...item,
+                  qty: item.qty + qty,
+                }
+              : {
+                  ...action.payload.product,
+                  qty: qty,
+                },
+          },
+        };
+      }
     case "REMOVE_FROM_CART":
       const newCart = { ...state.cart };
       const currProd = newCart[action.payload.id];

@@ -3,11 +3,11 @@ import { Card, Badge, Button, Fade } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";
-import { Context } from "../../Context";
+import { Context } from "../../CartContext";
 import "./index.css";
 
 export const ItemList = ({ product }) => {
-  const { name, img, id, description, price, artist } = product;
+  const { name, img, id, description, price, artist, stock = null } = product;
   const navigate = useNavigate();
   const { dispatch } = useContext(Context);
 
@@ -45,6 +45,9 @@ export const ItemList = ({ product }) => {
             <Badge className="text-dark p-2 border border-success" bg="light">
               $ {formatPrice(price)}
             </Badge>
+            <Badge className="text-dark p-2 border border-warning" bg="light">
+              Stock: {stock}
+            </Badge>
             <Button
               size="sm"
               variant="outline-dark"
@@ -59,7 +62,7 @@ export const ItemList = ({ product }) => {
                 });
               }}
             >
-              <i className="bi bi-cart-plus me-1"></i>Añadir al Carrito
+              <i className="bi bi-cart-plus me-1"></i>Añadir
             </Button>
           </div>
         </div>

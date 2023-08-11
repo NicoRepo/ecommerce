@@ -5,13 +5,14 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { NotFound } from "./components/NotFound/NotFound";
 import { CheckOut } from "./components/Checkout/CheckOut";
 import { Brief } from "./components/Checkout/Brief";
+import { limit } from "firebase/firestore";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<ItemListContainer asLanding={true}/>}></Route>
+          <Route index element={<ItemListContainer asLanding={true} plimit={limit(4)}/>}></Route>
           <Route
             path="category/:categoryId"
             element={<ItemListContainer />}

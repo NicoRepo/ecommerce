@@ -8,8 +8,8 @@ export const NotFound = () => {
       <div className="error mx-auto" data-text="404">
         404
       </div>
-      <p className="lead text-white mb-5">Página no encontrada</p>
-      <NavLink className="text-white"  to="/">&larr; Volver al Inicio</NavLink>
+      <p className="lead text-white fw-bold mb-5">Producto/Página no encontrada</p>
+      <NavLink className="text-white" to="/">&larr; Volver al Inicio</NavLink>
     </div>
   );
 };

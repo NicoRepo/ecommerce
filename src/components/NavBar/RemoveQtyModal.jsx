@@ -1,6 +1,6 @@
 import { Stack, Modal, Button } from "react-bootstrap";
 import { useState, useContext } from "react";
-import { Context } from "../../Context";
+import { Context } from "../../CartContext";
 import { RemoveItemCount } from "../ItemDetailContainer/ItemCount";
 
 export const RemoveQtyModal = ({ id, name, qty, setShow, show }) => {

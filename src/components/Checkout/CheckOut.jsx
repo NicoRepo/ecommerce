@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Context } from "../../Context";
+import { Context } from "../../CartContext";
 import { ContactForm } from "./ContactForm";
 import { formatPrice } from "../../helpers";
 import { useForm } from "react-hook-form";

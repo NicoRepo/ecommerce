@@ -1,20 +1,10 @@
 import CartWidget from "../CartWidget/CartWidget";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
-import { useContext } from "react";
-import { Context } from "../../Context";
-
-const categories = [
-  { name: "Todo", category: "all" },
-  { name: "Funk", category: "funk" },
-  { name: "Metal", category: "metal" },
-  { name: "Nu-Metal", category: "numetal" },
-  { name: "Post-Hardcore", category: "posthardcore" },
-  { name: "Pop Punk", category: "pop-punk" },
-  { name: "Rock", category: "rock" },
-];
+import { Context } from "../../CartContext";
+import { getCategories } from "../../API/API";
 
 export const NavBar = () => {
   const {
@@ -23,8 +13,17 @@ export const NavBar = () => {
 
   let itemsInCart = Object.values(cart).reduce((a, v) => a + v.qty, 0);
   const [showFullCart, setShowFullCart] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   const handleFullCartState = (state) => setShowFullCart(state);
+
+  useState(() => {
+    getCategories().then(categories => {
+      setCategories(categories)
+      setLoaded(true);
+    })
+  }, [loaded])
   return (
     <>
       <Navbar expand="lg" bg="light" sticky="top" variant="light">

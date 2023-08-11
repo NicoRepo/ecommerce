@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Provider } from "../../Context";
+import { Provider } from "../../CartContext";
 import { NavBar } from "../NavBar/NavBar";
 import { Body } from "../Body/Body";
 

@@ -41,7 +41,7 @@ export const Landing = ({ products = [] }) => {
     </p>
     <div className="d-flex justify-content-center">
       <Button variant="light" onClick={() => navigate("category/all")}>
-        Ver Productos
+        Ver más Productos <i className="bi bi-arrow-right"></i>
       </Button>
     </div>
   </div>
