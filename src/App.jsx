@@ -5,7 +5,6 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { NotFound } from "./components/NotFound/NotFound";
 import { CheckOut } from "./components/Checkout/CheckOut";
 import { Brief } from "./components/Checkout/Brief";
-import { limit } from "firebase/firestore";
 
 function App() {
   return (
