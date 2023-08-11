@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<ItemListContainer asLanding={true} plimit={limit(4)}/>}></Route>
+          <Route index element={<ItemListContainer asLanding={true} />}></Route>
           <Route
             path="category/:categoryId"
             element={<ItemListContainer />}
