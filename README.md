@@ -2,7 +2,7 @@
 
 Este repositorio contiene el proyecto final en el cual se aplicaron todos los conocimientos entregados durante el curso de React. VSHOP es una plataforma de e-commerce con una temática enfocada en la venta de vinilos.
 
-<video src='https://github.com/NicoRepo/ecommerce/blob/main/VHOP-DEMO.mp4'/>
+<video src='https://github.com/NicoRepo/ecommerce/blob/main/VHOP-DEMO.mp4'>
 
 
 ## Detalles Técnicos 🔧
