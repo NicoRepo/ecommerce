@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Badge, Stack } from "react-bootstrap";
+import { Card, Badge } from "react-bootstrap";
 import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";
 import { RemoveQtyModal } from "../NavBar/RemoveQtyModal";

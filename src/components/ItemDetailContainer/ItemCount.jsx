@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { InputGroup, Form, Button, ButtonGroup } from "react-bootstrap";
 
 export const RemoveItemCount = ({

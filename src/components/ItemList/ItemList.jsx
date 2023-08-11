@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Card, Badge, Button, Fade } from "react-bootstrap";
+import { Card, Badge, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";

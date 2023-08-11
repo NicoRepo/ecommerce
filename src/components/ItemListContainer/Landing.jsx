@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Carousel,  Button} from 'react-bootstrap';
+import { Carousel, Button} from 'react-bootstrap';
 
 export const Landing = ({ products = [] }) => {
   const navigate = useNavigate();
