@@ -5,7 +5,7 @@ import { RemoveQtyModal } from "./RemoveQtyModal";
 import TextOverflow from "react-text-overflow";
 
 export const ListProductItem = ({
-  id,
+  _id,
   img,
   name,
   qty,
@@ -15,7 +15,7 @@ export const ListProductItem = ({
   const [show, setShow] = useState(false);
   return (
     <div
-      key={id}
+      key={_id}
       className="d-flex justify-content-start align-items-center border border-dark pe-2 rounded my-1"
     >
       <Image src={img} rounded style={{ width: "40px" }}></Image>
@@ -44,7 +44,7 @@ export const ListProductItem = ({
         setShow={setShow}
         show={show}
         qty={qty}
-        id={id}
+        _id={_id}
       />
     </div>
   );

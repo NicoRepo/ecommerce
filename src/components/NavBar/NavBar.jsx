@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { Context } from "../../CartContext";
-import { getCategories } from "../../API/API";
+//import { getCategories } from "../../API/API";
+import  { getCategories } from "../../API/API_V2";
 
 export const NavBar = () => {
   const {
@@ -20,9 +21,13 @@ export const NavBar = () => {
 
   useState(() => {
     getCategories().then(categories => {
+      console.log(categories)
       setCategories(categories)
       setLoaded(true);
-    })
+    });
+
+    
+
   }, [loaded])
   return (
     <>
@@ -40,9 +45,9 @@ export const NavBar = () => {
               <NavDropdown title="Categorias">
                 {categories.map((c) => (
                   <NavDropdown.Item
-                    key={`nav-filter-${c.category}`}
+                    key={`nav-filter-${c._id}`}
                     as={NavLink}
-                    to={`/category/${c.category}`}
+                    to={`/category/${c._id}`}
                   >
                     {c.name}
                   </NavDropdown.Item>

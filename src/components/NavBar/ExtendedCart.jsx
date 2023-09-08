@@ -24,7 +24,7 @@ export const ExtendedCart = ({ show, handleState, cart }) => {
             direction="vertical"
           >
             {Object.values(cart).map((prod) => (
-              <ListProductItem key={prod.id} {...prod} />
+              <ListProductItem key={prod._id} {...prod} />
             ))}
           </Stack>
         </Stack>

@@ -108,7 +108,7 @@ export const CheckOut = () => {
                 style={{ height: "630px" }}
               >
                 {Object.values(cart).map((p) => (
-                  <ProductCard key={`p-card-${p.id}`} {...p} />
+                  <ProductCard key={`p-card-${p._id}`} {...p} />
                 ))}
               </Stack>
             </Card.Body>

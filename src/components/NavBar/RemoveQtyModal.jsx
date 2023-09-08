@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Context } from "../../CartContext";
 import { RemoveItemCount } from "../ItemDetailContainer/ItemCount";
 
-export const RemoveQtyModal = ({ id, name, qty, setShow, show }) => {
+export const RemoveQtyModal = ({ _id, name, qty, setShow, show }) => {
   const [rQty, setRQty] = useState(1);
   const { dispatch } = useContext(Context);
   const handleQty = (amount) => {
@@ -50,7 +50,7 @@ export const RemoveQtyModal = ({ id, name, qty, setShow, show }) => {
             dispatch({
               type: "REMOVE_FROM_CART",
               payload: {
-                id,
+                _id,
                 rQty,
               },
             });

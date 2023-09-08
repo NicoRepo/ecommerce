@@ -6,7 +6,6 @@ import {
   doc,
   query,
   where,
-  limit
 } from "firebase/firestore";
 import { db } from "../firebase";
 

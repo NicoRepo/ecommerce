@@ -3,6 +3,7 @@ import { Context } from "../../CartContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { Card, Tab, Tabs, ListGroup, Badge } from "react-bootstrap";
 import { productFind } from "../../API/API";
+import { getProduct } from "../../API/API_V2";
 import { formatPrice } from "../../helpers";
 import { Loading } from "../Loading/Loading";
 import { AddItemCount } from "./ItemCount";
@@ -34,14 +35,12 @@ export const ItemDetailContainer = () => {
   });
 
   useEffect(() => {
-    productFind({ id }).then((response) => {
-      if (response) {
-        setProduct(response);
-      } else {
-        //? If product was not found go to default 404
-        navigate("/not-found");
-      }
-    });
+
+    getProduct({ productId: id}).then(responseProd => {
+      if(responseProd) setProduct(responseProd);
+      else navigate("/not-found");
+    })
+
   }, [id]);
 
   return !product ? (

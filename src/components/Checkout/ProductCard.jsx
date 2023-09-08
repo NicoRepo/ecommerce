@@ -4,11 +4,11 @@ import TextOverflow from "react-text-overflow";
 import { formatPrice } from "../../helpers";
 import { RemoveQtyModal } from "../NavBar/RemoveQtyModal";
 
-export const ProductCard = ({ id, img, name, price, artist, qty }) => {
+export const ProductCard = ({ _id, img, name, price, artist, qty }) => {
   const [show, setShow] = useState(false);
   return (
     <Card
-      key={id}
+      key={_id}
       className="my-1 d-flex flex-row align-items-center"
       bg="light"
       border="secondary"
@@ -52,7 +52,7 @@ export const ProductCard = ({ id, img, name, price, artist, qty }) => {
         setShow={setShow}
         show={show}
         qty={qty}
-        id={id}
+        _id={_id}
       />
     </Card>
   );

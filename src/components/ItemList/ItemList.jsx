@@ -7,12 +7,12 @@ import { Context } from "../../CartContext";
 import "./index.css";
 
 export const ItemList = ({ product }) => {
-  const { name, img, id, description, price, artist, stock = null } = product;
+  const { name, img, _id, description, price, artist, stock = null } = product;
   const navigate = useNavigate();
   const { dispatch } = useContext(Context);
 
   const navigateItemPage = () => {
-    navigate(`/item/${id}`);
+    navigate(`/item/${_id}`);
   };
 
   useState(() => {}, []);
