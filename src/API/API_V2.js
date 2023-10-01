@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URI = "http://127.0.0.1:8000";
+const URI = "https://vshop.nmaza.dev/";
 
 export const API = axios.create({ baseURL: URI });
 
@@ -10,7 +10,7 @@ export const getProducts = async (
   if(category){
     categories.push(category)
   }
-  return await API.get("/products", { params: {
+  return await API.get("/api/products", { params: {
     categories: categories.join(",") || null
   } })
     .then((response) => {
@@ -24,7 +24,7 @@ export const getProducts = async (
 };
 
 export const createOrder = async (data) => {
-  return await API.post(`/orders/create`, data).then(response => {
+  return await API.post(`/api/orders/create`, data).then(response => {
     const { data } = response;
     return data;
   }).catch(error => {
@@ -34,7 +34,7 @@ export const createOrder = async (data) => {
 }
 
 export const getOrder = async ({orderId}) => {
-  return await API.get(`/orders/get/${orderId}`).then(response => {
+  return await API.get(`/api/orders/get/${orderId}`).then(response => {
     const { data } = response;
     return data;
   }).catch(error => {
@@ -44,7 +44,7 @@ export const getOrder = async ({orderId}) => {
 }
 
 export const getProduct = async ({productId}) => {
-  return await API.get(`/product/${productId}`).then(response => {
+  return await API.get(`/api/product/${productId}`).then(response => {
     const { data = null } = response;
     return data;
   }).catch(error => {
@@ -54,7 +54,7 @@ export const getProduct = async ({productId}) => {
 }
 
 export const getCategories = async () => {
-  return await API.get("/categories").then(response => {
+  return await API.get("/api/categories").then(response => {
     const { data = [] } = response;
     return data;
   }).catch(error => {
