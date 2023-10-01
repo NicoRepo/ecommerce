@@ -2,9 +2,10 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import HTTPException
 from fastapi.responses import JSONResponse
-from classes import MyDB, Product, Categorie
-from aggregations import generate_product_query, to_oid
-from exceptions import NotFound
+from app.classes import MyDB, Product, Category
+from app.aggregations import generate_product_query, to_oid
+from app.exceptions import NotFound
+from app.routers import orders
 
 app = FastAPI()
 db = MyDB()
@@ -16,6 +17,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(orders.router, prefix="/orders")
 
 @app.exception_handler(NotFound)
 async def unicorn_exception_handler(request: Request, exc: NotFound):
@@ -48,7 +50,7 @@ async def get_product(productId: str = None):
         raise HTTPException(status_code=400, detail=str(e))
     return rtv
 
-@app.get("/categories", response_model=list[Categorie])
+@app.get("/categories", response_model=list[Category])
 async def get_categories():
     rtv = []
     try:

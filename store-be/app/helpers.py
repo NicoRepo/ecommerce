@@ -15,7 +15,6 @@ def custom_serializer(x):
   elif isinstance(x, InsertOneResult):
     rtv = {'_id': str(x.inserted_id)}
   elif isinstance(x, Cursor):
-    print("XD")
     rtv = [custom_serializer(v) for v in x]
   elif isinstance(x, datetime):
     rtv = x.isoformat()

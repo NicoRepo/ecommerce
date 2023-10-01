@@ -3,7 +3,7 @@ import { Card, Button, Stack, InputGroup, Form, Badge } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { Loading } from "../Loading/Loading";
 import { ListProductItem } from "../NavBar/ListProductItem";
-import { getOrder } from "../../API/API";
+import { getOrder } from "../../API/API_V2";
 import { formatPrice } from "../../helpers";
 
 export const Brief = () => {
@@ -12,8 +12,10 @@ export const Brief = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(orderId)
     getOrder({ orderId }).then((order) => {
       if(order){
+        console.log(order)
         setOrderData(order);
       }else{
         navigate("/not-found");
@@ -36,7 +38,7 @@ export const Brief = () => {
             <InputGroup.Text id="order-id">ID Orden</InputGroup.Text>
             <Form.Control
               disabled
-              defaultValue={orderData.id}
+              defaultValue={orderData._id}
               aria-label="ID Pedido"
               aria-describedby="order-id"
             />
@@ -44,7 +46,7 @@ export const Brief = () => {
           <Card.Subtitle className="text-start">Resumen</Card.Subtitle>
           {orderData.orderDetail.map((prod) => (
             <ListProductItem
-              key={`resume-${prod.id}`}
+              key={`resume-${prod._id}`}
               {...prod}
               readOnly={true}
             />

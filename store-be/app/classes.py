@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorCollection
-from typing import Any, List, Optional
+from typing import Any, List, Optional, Required
 from bson import ObjectId
 import os
 
@@ -36,9 +36,52 @@ class Product(BaseModel):
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
 
-class Categorie(BaseModel):
+class ProductInOrder(Product):
+    qty: int
+
+class Category(BaseModel):
     id: OID = Field(default_factory=OID, alias="_id")
     name: str
+
+    class Config:
+        json_encoders = {ObjectId: str}
+
+class Order(BaseModel):
+    id: OID = Field(default_factory=OID, alias="_id")
+    email: Optional[str] = None
+    address: Optional[str] = None
+    firstName: Optional[str] = None
+    lastName: Optional[str] = None
+    region: Optional[str] = None
+    comuna: Optional[str] = None
+    cellPhone: Optional[str] = None
+    RUT: Optional[str] = None
+    orderDetail: Optional[list[ProductInOrder]] = []
+
+    class Config:
+        populate_by_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+
+class CreateOrder(BaseModel):
+    email: str
+    emailConfirm: str
+    address: str
+    firstName: str
+    lastName: str
+    region: str
+    comuna: str
+    cellPhone: str
+    RUT: str
+    productIds: dict[str, int]
+
+    def createOrder(self, orderDetail: list[dict[str, Any]]) -> dict:
+        tmp = self.model_dump(exclude=["productIds"])
+        tmp.update({"orderDetail": orderDetail})
+        return tmp
+
+class CreatedOrder(BaseModel):
+    orderId: OID = Field(default_factory=OID, alias="orderId")
 
     class Config:
         json_encoders = {ObjectId: str}

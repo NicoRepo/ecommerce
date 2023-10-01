@@ -9,9 +9,7 @@ import { getProducts } from "../../API/API_V2";
 
 export const ItemListContainer = ({ asLanding = false }) => {
   const [products, setProducts] = useState(null);
-  const { categoryId = "all" } = useParams();
-
-  const q = categoryId && categoryId !== "all" ? ["category", "==", categoryId] : null;
+  const { categoryId = null } = useParams();
 
   useEffect(() => {
     //? Clean Up items list, show loading component while promise is being resolved

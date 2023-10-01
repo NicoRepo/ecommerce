@@ -13,6 +13,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<ItemListContainer asLanding={true} />}></Route>
           <Route
+            path="products"
+            element={<ItemListContainer />}
+          ></Route>
+          <Route
             path="category/:categoryId"
             element={<ItemListContainer />}
           ></Route>

@@ -23,6 +23,26 @@ export const getProducts = async (
     });
 };
 
+export const createOrder = async (data) => {
+  return await API.post(`/orders/create`, data).then(response => {
+    const { data } = response;
+    return data;
+  }).catch(error => {
+    console.log(error);
+    return null;
+  });
+}
+
+export const getOrder = async ({orderId}) => {
+  return await API.get(`/orders/get/${orderId}`).then(response => {
+    const { data } = response;
+    return data;
+  }).catch(error => {
+    console.log(error);
+    return null
+  })
+}
+
 export const getProduct = async ({productId}) => {
   return await API.get(`/product/${productId}`).then(response => {
     const { data = null } = response;

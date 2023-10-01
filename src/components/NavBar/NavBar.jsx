@@ -21,7 +21,6 @@ export const NavBar = () => {
 
   useState(() => {
     getCategories().then(categories => {
-      console.log(categories)
       setCategories(categories)
       setLoaded(true);
     });
@@ -41,6 +40,9 @@ export const NavBar = () => {
             <Nav className="ms-auto mb-2 mb-lg-0 ms-lg-4">
               <Nav.Link as={NavLink} to="/">
                 Inicio
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/products">
+                Todos los Productos
               </Nav.Link>
               <NavDropdown title="Categorias">
                 {categories.map((c) => (

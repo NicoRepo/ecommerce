@@ -5,7 +5,7 @@ import { formatPrice } from "../../helpers";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { Navigate, useNavigate } from "react-router-dom";
-import { createOrder } from "../../API/API";
+import { createOrder } from "../../API/API_V2";
 import { ProductCard } from "./ProductCard";
 import {
   Card,
@@ -42,16 +42,16 @@ export const CheckOut = () => {
   const onSubmit = (data) => {
     setConfirmState(false);
     setFormEditable(true);
-    data["orderDetail"] = Object.values(cart).map(prod => {
-      const { id, price, name, qty, img } = prod;
-      return { id, price, name, qty, img }
-    });
+    data["productIds"] = Object.values(cart).reduce((a,v) => {
+      return {...a, [v._id]: v.qty}
+    }, {});
     setOrderData(data);
   };
 
   const placeOrder = () => {
     createOrder(orderData).then((created) => {
-      if(created){
+      const { orderId = null } = created;
+      if(orderId){
         toast.success("Orden creada exitosamente", {
           position: "top-right",
           autoClose: 1000,
@@ -63,9 +63,9 @@ export const CheckOut = () => {
           theme: "light",
         });
         dispatch({type: "EMPTY_CART"})
-        navigate(`/order/${created.id}`)
+        navigate(`/order/${orderId}`)
       }
-    });
+     });
   }
 
   const onError = (error) => {

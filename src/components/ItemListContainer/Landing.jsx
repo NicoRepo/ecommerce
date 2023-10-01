@@ -9,9 +9,9 @@ export const Landing = ({ products = [] }) => {
     <Carousel className="mx-auto mb-3" style={{ width: "900px" }}>
       {products.map((v, i) => {
         return (
-          <Carousel.Item key={`carousel-${v.id}`}
+          <Carousel.Item key={`carousel-${v._id}`}
             className="rounded"
-            onClick={() => navigate(`item/${v.id}`)}
+            onClick={() => navigate(`item/${v._id}`)}
             style={{
               cursor: "pointer",
               width: "100%",
