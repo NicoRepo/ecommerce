@@ -40,7 +40,7 @@ export const Landing = ({ products = [] }) => {
       enfocándonos en la calidad de la música que tú quieres escuchar.
     </p>
     <div className="d-flex justify-content-center">
-      <Button variant="light" onClick={() => navigate("category/all")}>
+      <Button variant="light" onClick={() => navigate("products")}>
         Ver más Productos <i className="bi bi-arrow-right"></i>
       </Button>
     </div>
