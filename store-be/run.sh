@@ -22,7 +22,7 @@ test -n ${RUN_MODE} -a "${RUN_MODE}" == "PROD" && {
     RELOAD='--reload';
     WORKERS=1;
   }
-  
+
 
 #NOTE: Move to gunicorn -> uvicorn -> app
 test -n ${RUN_MODE} -a "${RUN_MODE}" == "DEV" && {
@@ -30,5 +30,5 @@ test -n ${RUN_MODE} -a "${RUN_MODE}" == "DEV" && {
     uvicorn --port ${PORT} app.main:app --access-log ${RELOAD};
   } || {
     RELOAD=;
-    gunicorn -w ${WORKERS} -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT} ${RELOAD} app.main:app
+    gunicorn -w ${WORKERS} -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:${PORT} app.main:app
 }
