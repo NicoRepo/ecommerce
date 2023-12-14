@@ -90,9 +90,12 @@ class CreatedOrder(BaseModel):
 class MyDB(AsyncIOMotorClient):
     database = os.getenv("MAIN_DB", 'vshop')
     connection_string = os.getenv("CONNECTION_STR", 'mongodb://localhost:27017/')
+    tls = bool(os.environ.get('MONGOTLS', False))
+    pem_file = os.environ.get('MONGOPEM', None)
+    auth_mechanism = os.environ.get('MONGOAM', 'MONGODB-X509')
 
     def __init__(self) -> None:
-        super(MyDB, self).__init__(self.connection_string)
+        super(MyDB, self).__init__(self.connection_string, tls=self.tls, tlsCertificateKeyFile=self.pem_file, authMechanism=self.auth_mechanism)
     
     def __call__(self, collection: str, *args: Any, **kwargs: Any) -> AsyncIOMotorCollection:
         return self[self.database][collection]
